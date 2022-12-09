@@ -1,0 +1,25 @@
+﻿@model UniversityEventsManagementSystem.Models.Entity.Event
+@{
+	ViewData["Title"] = "Create";
+}
+
+<div class="container text-center custom-group-form mt-10">
+	<form asp-action="Create" asp-controller="Account" method="post">
+
+		<div class="form-group">
+			<label name="name">Title</label>
+			<input class="form-control" type="text" name="name" placeholder="Title" />
+		</div>
+
+		<div class="form-group">
+			<label name="ExpiryDate">ExpiryDate</label>
+			<asp:Calender name="ExpiryDate" id="calendar" runat="server">
+			</asp:Calender>
+		</div>
+
+		<div class="m-4">
+			<button class="btn btn-outline-primary">Create</button>
+		</div>
+	</form>
+</div>
+

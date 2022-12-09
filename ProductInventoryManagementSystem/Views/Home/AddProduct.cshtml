@@ -1,0 +1,50 @@
+﻿@model ProductInventoryManagementSystem.Models.ViewModels.AddProductViewModel
+@{
+    ViewData["Title"] = "Add product";
+}
+
+<div class="container text-center custom-group-form">
+    <form asp-action="AddProduct" asp-controller="Home" method="post">
+		<div class="form-group">
+			<label asp-for="Name">Name</label><br />
+			<input class="form-control" type="text" asp-for="Name" placeholder="Name" />
+			<span asp-validation-for="Name" />
+		</div>
+
+		<div class="form-group">
+			<label asp-for="Description">Description</label><br />
+			<input class="form-control" type="text" asp-for="Description" placeholder="Description" />
+			<span asp-validation-for="Description" />
+		</div>
+
+		<div class="form-group">
+			<label asp-for="Price">Price</label><br />
+			<input class="form-control" type="number" min="0" asp-for="Price" />
+			<span asp-validation-for="Price" />
+		</div>
+
+		<div class="form-group">
+			<label asp-for="Count">Count</label><br />
+			<input class="form-control" type="number" min="0" value="0" asp-for="Count"/>
+			<span asp-validation-for="Count" />
+		</div>
+
+		<div class="form-group text-start">
+			<p>Product type</p>
+			<select class="form-select form-control" asp-for="ProductType">
+				<option value="Phone">Phone</option>
+				<option value="Device">Device</option>
+				<option value="Monitor">Monitor</option>
+				<option value="Headset">Headset</option>
+				<option value="Other">Other</option>
+			</select>
+			<span asp-validation-for="ProductType" />
+		</div>
+
+		<div class="m-4">
+			<button class="btn btn-outline-primary">Add</button>
+		</div>
+
+    </form>
+</div>
+

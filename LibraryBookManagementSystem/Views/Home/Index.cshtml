@@ -1,0 +1,51 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+@model List<LibraryBookManagementSystem.Models.Entities.Book>
+
+<div class="text-center">
+	<h1>Library Book Management System</h1>
+
+	<div>
+		<form class="text-center d-flex" role="search" asp-action="Search" asp-controller="Home">
+			<input class="form-control me-2 m-2" type="search" placeholder="Search" aria-label="Search" name="value">
+			<button class="btn btn-outline-primary m-2" type="submit">Search</button>
+		</form>
+	</div>
+
+	@if (Model.Count < 1)
+	{
+		<p>Book list is empty</p>
+	}
+	else
+	{
+		@foreach (var item in Model)
+		{
+			<div class="row m-1">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 col-xl-10">
+					<p class="list-group-item list-group-item-action list-group-item-secondary pointer"
+					onclick="showInfo(@item.Id)">
+						@item.Title
+					</p>
+				</div>
+				@if (User.IsInRole("admin") || User.IsInRole("librarian"))
+				{
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-xl-2">
+						<a class="btn btn-outline-warning m-1" href="/Home/EditBook/@item.Id">Edit</a>
+						<a class="btn btn-outline-danger m-1" href="/Home/RemoveBook/@item.Id">Remove</a>
+					</div>
+				}
+				else
+				{
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-xl-2">
+						<a class="btn btn-outline-success m-1" href="/Home/Read/@item.Id">Read</a>
+					</div>
+				}
+			</div>
+		}
+	}
+</div>
+
+@section Scripts {
+	<script src="~/js/showInfo.js"></script>
+}

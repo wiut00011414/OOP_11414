@@ -1,0 +1,25 @@
+﻿@{
+	ViewData["Title"] = "SignIn";
+}
+
+<div class="container text-center custom-group-form mt-10">
+	<form asp-action="SignIn" asp-controller="Account" method="post">
+
+		<div class="form-group">
+			<label name="name">Your name</label>
+			<input class="form-control" type="text" name="name" placeholder="login" />
+		</div>
+
+		<div class="form-group">
+			<label> Choose your role</label><br />
+			<select class="form-control" name="role">
+				<option value="student">Student</option>
+				<option value="staff">Staff</option>
+			</select>
+		</div>
+
+		<div class="m-4">
+			<button class="btn btn-outline-primary">Log in</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,25 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+@model List<UniversityEventsManagementSystem.Models.Entity.Event>
+
+<div class="text-center">
+	<table>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Title</td>
+				<td>@item.Creator</td>
+				<td>@item.CreationDate</td>
+				<td>@item.ExpiryDate</td>
+				<td><a class="btn btn-outline-primary" onclick="showInfo(@item.Id)" href="#">View</a></td>
+				<td><a class="btn btn-outline-secondary">Edit</a></td>
+				<td><a class="btn btn-outline-danger">Remove</a></td>
+			</tr>
+		}
+	</table>
+</div>
+
+@section Scripts {
+	<script src="~/js/showInfo.js"></script>
+}

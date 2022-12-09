@@ -1,0 +1,45 @@
+﻿@{
+	ViewData["Title"] = "AddBook";
+}
+@model LibraryBookManagementSystem.Models.ViewModels.AddBookViewModel
+
+<div class="container text-center custom-group-form">
+	<form asp-action="AddBook" asp-controller="Home" method="post">
+		<div class="form-group">
+			<label asp-for="Title">Title</label><br />
+			<input class="form-control" type="text" asp-for="Title" placeholder="Title" />
+			<span asp-validation-for="Title" />
+		</div>
+
+		<div class="form-group">
+			<label asp-for="Author">Author</label><br />
+			<input class="form-control" type="text" asp-for="Author" placeholder="Author" />
+			<span asp-validation-for="Author" />
+		</div>
+
+		<div class="form-group">
+			<label asp-for="Description">Description</label><br />
+			<input class="form-control" type="text" asp-for="Description" placeholder="Description" />
+			<span asp-validation-for="Description" />
+		</div>
+
+		<div class="form-group text-start mt-3">
+			<p>Book theme</p>
+			<select class="form-select form-control" asp-for="Genre">
+				<option value="Classics">Classics</option>
+				<option value="Detective">Detective</option>
+				<option value="Mystery">Mystery</option>
+				<option value="Fantasy">Fantasy</option>
+				<option value="HistoricalFiction">Historical Fiction</option>
+				<option value="LiteraryFiction">Literary Fiction</option>
+				<option value="Other">Other</option>
+			</select>
+			<span asp-validation-for="Genre"/>
+		</div>
+
+		<div class="m-4">
+			<button class="btn btn-outline-primary">Add</button>
+		</div>
+
+	</form>
+</div>
